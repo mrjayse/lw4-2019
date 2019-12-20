@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: mintcream;
+}
+
+#no-deco-link {
+    text-decoration: none;
+}
+
+header div {
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+header .logo {
+    margin-left: 100px;
+}
+
+header .cart {
+    margin-right: 100px;
+    float: right;
+}
+
+header img {
+    max-height: 130px;
+}
+
+nav {
+    font-size: 24px;
+    margin-top: 25px;
+    margin-left: 60px;
+    width: 250px;
+    float: left;
+}
+
+nav h2 {
+    margin-bottom: 10px;
+}
+
+nav li {
+    margin-bottom: 10px;
+    list-style-type: none;
+}
+
+.goods {
+    margin-top: 25px;
+    max-width: 1400px;
+    padding-left: 50px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+section {
+    margin: 20px 0px 20px 20px;
+    text-align: center;
+    min-width: 240px;
+}
+
+.goods a:nth-of-type(1), .suggest-goods a:nth-of-type(1) {
+    text-decoration: none;
+    color: black;
+}
+
+section img {
+    width: 200px;
+}
+
+.main-content {
+    margin-top: 25px;
+    padding-left: 50px;
+    width: 1400px;
+    float: left;
+}
+
+.item {
+    display: flex;
+    margin-bottom: 50px;
+}
+
+.item img {
+    margin-top: 80px;
+    width: 300px;
+    max-height: 300px;
+}
+
+.item .item-content {
+    width: 100%;
+}
+
+.item .item-content h1 {
+    font-size: 50px;
+    text-align: center;
+}
+
+.item .item-content {
+    font-size: 30px;
+    text-align: center;
+}
+
+.item .item-content p {
+    margin: 20px 0px 20px 40px;
+    font-size: 30px;
+    text-align: left;
+}
+
+.suggest .sug-title {
+    font-size: 30px;
+    font-style: normal;
+    margin-bottom: 20px;
+}
+
+.suggest .suggest-goods {
+    display: flex;
+    flex-wrap: wrap;
+}
