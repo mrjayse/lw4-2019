@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#wrapper {
+  margin-top: 10px;
+  margin-left: 15px;
+  max-width: 65vw;
+  max-height: 80vh;
+}
+
+#work-space {
+  display: flex;
+  flex-direction: row;
+}
+
+.title {
+  font-size: 1.5rem;
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+.left-side, .right-side {
+  padding: 5px;
+  margin-right: 5px;
+  width: 50%;
+}
+
+.path-string {
+  border: 1px solid black;
+  margin-bottom: 5px;
+  padding: 3px;
+}
+
+.file-window {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  padding: 3px;
+  height: 30vh;
+  overflow-y: auto;
+}
+
+.file-row {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 3px;
+  margin-top: 3px;
+}
+
+.selected-row {
+  background-color: lightskyblue;
+}
+
+.file-attribute.icon {
+  width: 20px;
+}
+
+.file-attribute.file-name {
+  margin-left: 3px;
+  width: 60%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.file-attribute.file-type,
+.file-attribute.file-size {
+  flex: 1;
+  padding-right: 5px;
+  text-align: right;
+}
+
+.file-attribute.icon {
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.file-attribute.folder-icon {
+  background-image: url("icons/folder-icon.png");
+}
+
+.file-attribute.txt-icon {
+  background-image: url("icons/txt-icon.png");
+}
