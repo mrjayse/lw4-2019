@@ -1,55 +1,56 @@
-var allLeftRows = document.getElementsByClassName("left-side")[0].querySelectorAll(".file-row");
-var allRightRows = document.getElementsByClassName("right-side")[0].querySelectorAll(".file-row");
-var leftFileWindow = document.getElementsByClassName("left-side")[0].getElementsByClassName("file-window")[0];
-var rightFileWindow = document.getElementsByClassName("right-side")[0].getElementsByClassName("file-window")[0];
+var allLeftRows = document.getElementsByClassName('left-side')[0].querySelectorAll('.file-row');
+var allRightRows = document.getElementsByClassName('right-side')[0].querySelectorAll('.file-row');
+var leftFileWindow = document.getElementsByClassName('left-side')[0].getElementsByClassName('file-window')[0];
+var rightFileWindow = document.getElementsByClassName('right-side')[0].getElementsByClassName('file-window')[0];
 
-var currentlySelectedLeftRow;
-var currentlySelectedRightRow;
-var currentlySelectedLeftRowNumber;
+var currentlySelectedLeftRowNumber = 0;
 var currentlySelectedRightRowNumber;
-var currentSide;
+var currentlySelectedLeftRow = allLeftRows[currentlySelectedLeftRowNumber];
+var currentlySelectedRightRow;
+var currentSide = "Left";
 
 onload = function() {
+  currentlySelectedLeftRow.classList.add('selected-row');
 
   for (var i = 0; i < allLeftRows.length + allRightRows.length; i++) {
     var allRows = Array.from(allLeftRows).concat(Array.from(allRightRows));
 
-    allRows[i].addEventListener("click", function() {
-      var w = event.target.parentElement;
-      while (!w.classList.contains("left-side") && !w.classList.contains("right-side"))
-        w = w.parentElement;
-      if (w.classList.contains("left-side")) {
+    allRows[i].addEventListener('click', function() {
+      var parentElem = event.target.parentElement;
+      while (!parentElem.classList.contains('left-side') && !parentElem.classList.contains('right-side'))
+      parentElem = parentElem.parentElement;
+      if (parentElem.classList.contains('left-side')) {
         currentlySelectedRightRowNumber = null;
-        currentSide = "Left";
+        currentSide = 'Left';
       }
-      else if (w.classList.contains("right-side")) {
+      else if (parentElem.classList.contains('right-side')) {
         currentlySelectedLeftRowNumber = null;
-        currentSide = "Right";
+        currentSide = 'Right';
       }
       
       if (currentlySelectedLeftRow != null) {
-        currentlySelectedLeftRow.classList.remove("selected-row");
+        currentlySelectedLeftRow.classList.remove('selected-row');
         currentlySelectedLeftRow = null;
       }
       
       if (currentlySelectedRightRow != null) {
-        currentlySelectedRightRow.classList.remove("selected-row");
+        currentlySelectedRightRow.classList.remove('selected-row');
         currentlySelectedRightRow = null;
       }
       
-      if (event.target.classList.contains("file-row")) {
-        if (currentSide === "Left") {
+      if (event.target.classList.contains('file-row')) {
+        if (currentSide === 'Left') {
           currentlySelectedLeftRow = event.target;
         }
-        else if (currentSide === "Right") {
+        else if (currentSide === 'Right') {
           currentlySelectedRightRow = event.target;
         }
       }
-      else if (event.target.parentElement.classList.contains("file-row")) {
-        if (currentSide === "Left") {
+      else if (event.target.parentElement.classList.contains('file-row')) {
+        if (currentSide === 'Left') {
           currentlySelectedLeftRow = event.target.parentElement;
         }
-        else if (currentSide === "Right") {
+        else if (currentSide === 'Right') {
           currentlySelectedRightRow = event.target.parentElement;
         }
       }
@@ -57,12 +58,12 @@ onload = function() {
         return;
       }
       
-      if (currentSide === "Left") {
-        currentlySelectedLeftRow.classList.add("selected-row");
+      if (currentSide === 'Left') {
+        currentlySelectedLeftRow.classList.add('selected-row');
         currentlySelectedLeftRowNumber = Array.from(allLeftRows).indexOf(currentlySelectedLeftRow);
       }
-      else if (currentSide === "Right") {
-        currentlySelectedRightRow.classList.add("selected-row");
+      else if (currentSide === 'Right') {
+        currentlySelectedRightRow.classList.add('selected-row');
         currentlySelectedRightRowNumber = Array.from(allRightRows).indexOf(currentlySelectedRightRow);
       }
 
@@ -74,12 +75,12 @@ onload = function() {
 
 
 
-window.addEventListener("keydown", keyPressed);
+window.addEventListener('keydown', keyPressed);
 
 function keyPressed(key) {
   switch(key.keyCode) {
     case 37:
-      if (currentSide === "Right" || currentSide == null) {
+      if (currentSide === 'Right' || currentSide == null) {
         if (currentlySelectedRightRowNumber >= 0 && currentlySelectedRightRowNumber < allLeftRows.length) {
           currentlySelectedLeftRowNumber = currentlySelectedRightRowNumber;
         }
@@ -89,39 +90,39 @@ function keyPressed(key) {
         else {
           currentlySelectedLeftRowNumber = allLeftRows.length - 1;
         }
-        currentSide = "Left";
+        currentSide = 'Left';
         
         if (currentlySelectedRightRow != null) {
-            currentlySelectedRightRow.classList.remove("selected-row");
+            currentlySelectedRightRow.classList.remove('selected-row');
         }
         currentlySelectedLeftRow = Array.from(allLeftRows)[currentlySelectedLeftRowNumber];
-        currentlySelectedLeftRow.classList.add("selected-row");
+        currentlySelectedLeftRow.classList.add('selected-row');
       }
       break;
     case 38:
-      if (currentSide === "Left") {
+      if (currentSide === 'Left') {
         if (currentlySelectedLeftRowNumber - 1 >= 0) {
           currentlySelectedLeftRowNumber--;
           if (currentlySelectedLeftRow != null)
-            currentlySelectedLeftRow.classList.remove("selected-row");
+            currentlySelectedLeftRow.classList.remove('selected-row');
           
           currentlySelectedLeftRow = Array.from(allLeftRows)[currentlySelectedLeftRowNumber];
-          currentlySelectedLeftRow.classList.add("selected-row");
+          currentlySelectedLeftRow.classList.add('selected-row');
         }
       }
-      else if (currentSide === "Right") {
+      else if (currentSide === 'Right') {
         if (currentlySelectedRightRowNumber - 1 >= 0) {
           currentlySelectedRightRowNumber--;
           if (currentlySelectedRightRow != null)
-            currentlySelectedRightRow.classList.remove("selected-row");
+            currentlySelectedRightRow.classList.remove('selected-row');
           
           currentlySelectedRightRow = Array.from(allRightRows)[currentlySelectedRightRowNumber];
-          currentlySelectedRightRow.classList.add("selected-row");
+          currentlySelectedRightRow.classList.add('selected-row');
         }
       }
       break;
     case 39:
-      if (currentSide === "Left" || currentSide == null) {
+      if (currentSide === 'Left' || currentSide == null) {
         if (currentlySelectedLeftRowNumber >= 0 && currentlySelectedLeftRowNumber < allRightRows.length) {
           currentlySelectedRightRowNumber = currentlySelectedLeftRowNumber;
         }
@@ -131,34 +132,34 @@ function keyPressed(key) {
         else {
           currentlySelectedRightRowNumber = allRightRows.length - 1;
         }
-        currentSide = "Right";
+        currentSide = 'Right';
 
         if (currentlySelectedLeftRow != null) {
-            currentlySelectedLeftRow.classList.remove("selected-row");
+            currentlySelectedLeftRow.classList.remove('selected-row');
         }
         currentlySelectedRightRow = Array.from(allRightRows)[currentlySelectedRightRowNumber];
-        currentlySelectedRightRow.classList.add("selected-row");
+        currentlySelectedRightRow.classList.add('selected-row');
       }
     break;
     case 40:
-      if (currentSide === "Left") {
+      if (currentSide === 'Left') {
         if (currentlySelectedLeftRowNumber + 1 < allLeftRows.length) {
           currentlySelectedLeftRowNumber++;
           if (currentlySelectedLeftRow != null)
-            currentlySelectedLeftRow.classList.remove("selected-row");
+            currentlySelectedLeftRow.classList.remove('selected-row');
           
           currentlySelectedLeftRow = Array.from(allLeftRows)[currentlySelectedLeftRowNumber];
-          currentlySelectedLeftRow.classList.add("selected-row");
+          currentlySelectedLeftRow.classList.add('selected-row');
         }
       }
-      else if (currentSide === "Right") {
+      else if (currentSide === 'Right') {
         if (currentlySelectedRightRowNumber + 1 < allRightRows.length) {
           currentlySelectedRightRowNumber++;
           if (currentlySelectedRightRow != null)
-            currentlySelectedRightRow.classList.remove("selected-row");
+            currentlySelectedRightRow.classList.remove('selected-row');
           
           currentlySelectedRightRow = Array.from(allRightRows)[currentlySelectedRightRowNumber];
-          currentlySelectedRightRow.classList.add("selected-row");
+          currentlySelectedRightRow.classList.add('selected-row');
         }
       }
     break;

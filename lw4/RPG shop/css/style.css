@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: mintcream;
+}
+
+.no-decoration {
+  text-decoration: none;
+}
+
+.header div {
+  display: inline-block;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.header .logo {
+  margin-left: 100px;
+}
+
+.header .cart {
+  margin-right: 100px;
+  float: right;
+}
+
+.header img {
+  max-height: 130px;
+}
+
+.category-menu {
+  font-size: 24px;
+  margin-top: 25px;
+  margin-left: 60px;
+  width: 250px;
+  float: left;
+}
+
+.category-header {
+  margin-bottom: 10px;
+}
+
+.category-elem {
+  margin-bottom: 10px;
+  list-style-type: none;
+}
+
+.product {
+  margin-top: 25px;
+  max-width: 1400px;
+  padding-left: 50px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.section-item {
+  margin: 20px 0px 20px 20px;
+  text-align: center;
+  min-width: 240px;
+}
+
+.product a:nth-of-type(1), .suggest-product a:nth-of-type(1) {
+  text-decoration: none;
+  color: black;
+}
+
+.section-item img {
+  width: 200px;
+}
+
+.main-content {
+  margin-top: 25px;
+  padding-left: 50px;
+  width: 1400px;
+  float: left;
+}
+
+.item {
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.item img {
+  margin-top: 80px;
+  width: 300px;
+  max-height: 300px;
+}
+
+.item .item-content {
+  width: 100%;
+}
+
+.item .item-content h1 {
+  font-size: 50px;
+  text-align: center;
+}
+
+.item .item-content {
+  font-size: 30px;
+  text-align: center;
+}
+
+.item .item-content p {
+  margin: 20px 0px 20px 40px;
+  font-size: 30px;
+  text-align: left;
+}
+
+.suggest .sug-title {
+  font-size: 30px;
+  font-style: normal;
+  margin-bottom: 20px;
+}
+
+.suggest .suggest-product {
+  display: flex;
+  flex-wrap: wrap;
+}
