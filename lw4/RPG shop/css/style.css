@@ -55,7 +55,7 @@ header {
   flex-wrap: wrap;
 }
 
-.section-item {
+.item {
   margin: 20px 0px 20px 20px;
   text-align: center;
   min-width: 240px;
@@ -66,7 +66,7 @@ header {
   color: black;
 }
 
-.section-item img {
+.item img {
   width: 200px;
 }
 
@@ -77,32 +77,32 @@ header {
   float: left;
 }
 
-.item {
+.item-main {
   display: flex;
   margin-bottom: 50px;
 }
 
-.item img {
+.item-main img {
   margin-top: 80px;
   width: 300px;
-  max-height: 300px;
+  height: 300px;
 }
 
-.item .item-content {
+.item-main .item-content {
   width: 100%;
 }
 
-.item .item-content h1 {
+.item-main .item-content h1 {
   font-size: 50px;
   text-align: center;
 }
 
-.item .item-content {
+.item-main .item-content {
   font-size: 30px;
   text-align: center;
 }
 
-.item .item-content p {
+.item-main .item-content p {
   margin: 20px 0px 20px 40px;
   font-size: 30px;
   text-align: left;
